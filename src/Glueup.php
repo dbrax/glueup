@@ -6,19 +6,11 @@ class Glueup
 {
     public static $API_version    = '1.0';
     public static $API_endpoint   = 'https://api.glueup.com/v2/';
-    public static $API_tenant;
-    public static $API_orgID;
-    public static $API_account;
-    public static $API_privatekey;
+    public static $API_tenant     = 673;
+    public static $API_orgID      = 4525;
+    public static $API_account    = 'wima';
+    public static $API_privatekey = 'MF0CAQACEACniXo3LMKqPt5egCWvAaMCAwEAAQIPfwNt4WiQyFcqRn74UTPJAggNu7TsEHtxzQIIDDMLOLHQkS8CCAUFfFrQkAKFAggFP5SNUJqdSwIIDRQ8JiYwYK4=';
 
-
-    public function _construct($API_tenant, $API_orgID, $API_account, $API_privatekey)
-    {
-        $this->API_tenant = $API_tenant;
-        $this->API_orgID = $API_orgID;
-        $this->API_account = $API_account;
-        $this->API_privatekey = $API_privatekey;
-    }
     private static $DEBUG_MODE    = false;
 
     public static function get($operation, $token = '')
