@@ -2,10 +2,14 @@
 
 namespace Epmnzava\Glueup;
 
-class Api extends Glueup
+class Api
 {
     public static $API_version    = '1.0';
     public static $API_endpoint   = 'https://api.glueup.com/v2/';
+    public static $API_tenant     = 000;
+    public static $API_orgID      = 888;
+    public static $API_account    = 'kima';
+    public static $API_privatekey = 'MF0CAQACEACniXo3LMKqPt5egCWvAaMCAwEAAQIPfwNt4WiQyFcqRn74UTPJAggNu7TsEHtxzQIIDDMLOLHQkS8CCAUFfFrQkAKFAggFP5SNUJqdSwIIDRQ8JiYwYK4=';
 
     private static $DEBUG_MODE    = false;
 
@@ -49,7 +53,6 @@ class Api extends Glueup
         }
 
         $ts   = time() * 1000;
-
         $hash = strtoupper($method) . self::$API_account . self::$API_version . $ts;
         $d    = hash_hmac('sha256', $hash, self::$API_privatekey);
         $a    = 'a:d=' . $d . ';v=' . self::$API_version . ';k=' . self::$API_account . ';ts=' . $ts;

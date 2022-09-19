@@ -7,17 +7,7 @@ use Epmnzava\Glueup\User;
 class Glueup
 {
 
-    public  $API_tenant;
-    public  $API_orgID;
-    public  $API_account;
-    public  $API_privatekey;
-    public function __construct($API_tenant, $API_orgID, $API_account, $API_privatekey)
-    {
-        $this->API_tenant = $API_tenant;
-        $this->API_orgID = $API_orgID;
-        $this->API_account = $API_account;
-        $this->API_privatekey = $API_privatekey;
-    }
+
 
     public function createUser($firstName, $lastName, $email, $password, $language, $isOrgOptin = true)
     {
