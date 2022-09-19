@@ -7,10 +7,6 @@ class User extends Glueup
 
 
 
-
-
-
-
     public function create($firstName, $lastName, $email, $password, $language, $isOrgOptin = true)
     {
         $params = array(
@@ -24,7 +20,7 @@ class User extends Glueup
 
 
 
-        $result = $this->post('user', $params);
+        $result = Api::post('user', $params);
 
         return $result;
     }
@@ -39,7 +35,7 @@ class User extends Glueup
             'emailAddress'   => array('value' => $email),
         );
 
-        $result = $this->put('subscription/subscribeList', $params);
+        $result = Api::put('subscription/subscribeList', $params);
 
         return $result;
     }
@@ -52,7 +48,7 @@ class User extends Glueup
             'passphrase' => array('value' => md5($password))
         );
 
-        $result = $this->post('user/session', $params);
+        $result = Api::post('user/session', $params);
 
         return $result;
     }
@@ -60,7 +56,7 @@ class User extends Glueup
     {
         $redirect_url = '/my/profile/';
         $timestamp    = time();
-        $result = $this->get('user/redirect/token?new_broker=php_' . $this->API_account . '&timestamp=' . $timestamp . '&redirect_url=' . $redirect_url, $token);
+        $result = Api::get('user/redirect/token?new_broker=php_' . $this->API_account . '&timestamp=' . $timestamp . '&redirect_url=' . $redirect_url, $token);
 
         return $result;
     }
