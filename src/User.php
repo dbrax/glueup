@@ -2,7 +2,7 @@
 
 namespace Epmnzava\Glueup;
 
-class User
+class User extends Glueup
 {
 
 
@@ -24,7 +24,7 @@ class User
 
 
 
-        $result = Glueup::post('user', $params);
+        $result = $this->post('user', $params);
 
         return $result;
     }
@@ -33,13 +33,13 @@ class User
     public function subscribe($firstName, $lastName, $email)
     {
         $params = array(
-            'organizationId' => Glueup::$API_orgID,
+            'organizationId' => $this->API_orgID,
             'givenName'      => $firstName,
             'familyName'     => $lastName,
             'emailAddress'   => array('value' => $email),
         );
 
-        $result = Glueup::put('subscription/subscribeList', $params);
+        $result = $this->put('subscription/subscribeList', $params);
 
         return $result;
     }
@@ -52,7 +52,7 @@ class User
             'passphrase' => array('value' => md5($password))
         );
 
-        $result = GlueUp::post('user/session', $params);
+        $result = $this->post('user/session', $params);
 
         return $result;
     }
@@ -60,7 +60,7 @@ class User
     {
         $redirect_url = '/my/profile/';
         $timestamp    = time();
-        $result = Glueup::get('user/redirect/token?new_broker=php_' . Glueup::$API_account . '&timestamp=' . $timestamp . '&redirect_url=' . $redirect_url, $token);
+        $result = $this->get('user/redirect/token?new_broker=php_' . $this->API_account . '&timestamp=' . $timestamp . '&redirect_url=' . $redirect_url, $token);
 
         return $result;
     }

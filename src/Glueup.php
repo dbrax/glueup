@@ -6,10 +6,10 @@ class Glueup
 {
     public static $API_version    = '1.0';
     public static $API_endpoint   = 'https://api.glueup.com/v2/';
-    public static $API_tenant;
-    public static $API_orgID;
-    public static $API_account;
-    public static $API_privatekey;
+    public  $API_tenant;
+    public  $API_orgID;
+    public  $API_account;
+    public  $API_privatekey;
 
     private static $DEBUG_MODE    = false;
 
