@@ -9,11 +9,9 @@ class User
 
 
 
-    public function __construct()
-    {
-    }
 
-    public function createUser($firstName, $lastName, $email, $password, $language, $isOrgOptin = true)
+
+    public function create($firstName, $lastName, $email, $password, $language, $isOrgOptin = true)
     {
         $params = array(
             'givenName'  => $firstName,
@@ -32,7 +30,7 @@ class User
     }
 
 
-    public function subscribeUser($firstName, $lastName, $email)
+    public function subscribe($firstName, $lastName, $email)
     {
         $params = array(
             'organizationId' => Glueup::$API_orgID,
@@ -47,7 +45,7 @@ class User
     }
 
 
-    public function loginUser($email, $password)
+    public function login($email, $password)
     {
         $params = array(
             'email'      => array('value' => $email),
@@ -58,7 +56,7 @@ class User
 
         return $result;
     }
-    public function keepUserLogginedIn($token,)
+    public function maintainUserLogginedIn($token)
     {
         $redirect_url = '/my/profile/';
         $timestamp    = time();
